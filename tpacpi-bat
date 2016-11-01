@@ -398,7 +398,8 @@ sub acpiCall($){
   if(not -e $psdev){
     die "No power supply device path to read ASL base from: $psDeviceGlob\n";
   }
-  my $aslBase = `cat $psdev`;
+  #my $aslBase = `cat $psdev`;
+  my $aslBase = '\_SB.PCI0.LPCB.EC.HKEY';
   chomp $aslBase;
 
   $aslBase =~ s/_+(\.|$)/$1/g; #trim trailing _s from components
